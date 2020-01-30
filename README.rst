@@ -7,14 +7,14 @@
   .. image:: https://zenodo.org/badge/doi/10.5281/zenodo.#####.svg
      :target: http://dx.doi.org/10.5281/zenodo.#####
 
-#####################
-Summit PTP Deployment
-#####################
+###########################
+Summit Time Synchronization
+###########################
 
 ITTN-009
 ========
 
-This document describes the requirements, configuration, and troubleshooting for PTP at Cerro Pachon.
+This document describes the requirements, configuration, and troubleshooting for time synchronization at Cerro Pachon.
 
 **Links:**
 

@@ -48,7 +48,7 @@
 
    **This technote is not yet published.**
 
-   This document describes the requirements, configuration, and troubleshooting for PTP at Cerro Pachon.
+   This document describes the requirements, configuration, and troubleshooting for time synchronization at Cerro Pachon.
 
 .. Add content here.
 .. Do not include the document title (it's automatically added from metadata.yaml).
