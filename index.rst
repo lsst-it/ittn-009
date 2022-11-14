@@ -103,6 +103,27 @@ least:
 - Time of exposure start and end, referenced to TAI, and DUT1
 ...*
 
+Specification
+=============
+
+System timestamps in UTC and TAI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Linux hosts SHALL be configured such that the `clock_gettime(2)
+<https://man7.org/linux/man-pages/man3/clock_gettime.3.html>`_ system call will
+provide a timestamp that conforms to ``timestampAccuracy`` and
+``timestampPrecision`` when called with the following values for ``clock_id``:
+
+- ``CLOCK_REALTIME``
+- ``CLOCK_TAI``
+
+Relevent requirements
+"""""""""""""""""""""
+
+- ``OSS-REQ-0087``
+- ``OSS-REQ-0089``
+- ``DMS-REQ-0068 (Priority: 1a)``
+
 Linux System Clock
 ==================
 
