@@ -57,7 +57,8 @@ second is periodically added to the UTC timezone to fix this offset.
 However leap seconds cause a lot of highly bizarre behavior. One such quirk is
 that days that have a leap second have a minute that is 61 seconds long.
 
-::
+.. code-block:: bash
+
    $ TZ=right/UTC date -d 'Dec 31 2008 23:59:60'
    Wed Dec 31 23:59:60 UTC 2008
 
@@ -83,7 +84,8 @@ We first start by looking at the definition of the ``CLOCK_TAI`` clock.
 
 https://github.com/torvalds/linux/blob/v5.5/kernel/time/posix-timers.c#L1311-L1325
 
-::
+.. code-block:: c
+
    static const struct k_clock clock_tai = {
         .clock_getres        = posix_get_hrtimer_res,
         .clock_get           = posix_get_tai,
@@ -103,7 +105,9 @@ https://github.com/torvalds/linux/blob/v5.5/kernel/time/posix-timers.c#L1311-L13
 This leads us to the ``posix_get_tai`` function.
 
 https://github.com/torvalds/linux/blob/v5.5/kernel/time/posix-timers.c#L231-L235
-::
+
+.. code-block:: c
+
    static int posix_get_tai(clockid_t which_clock, struct timespec64 *tp)
    {
            ktime_get_clocktai_ts64(tp);
@@ -111,7 +115,9 @@ https://github.com/torvalds/linux/blob/v5.5/kernel/time/posix-timers.c#L231-L235
    }
 
 https://github.com/torvalds/linux/blob/v5.5/include/linux/timekeeping.h#L202-L205
-::
+
+.. code-block:: c
+
    static inline void ktime_get_clocktai_ts64(struct timespec64 *ts)
    {
            *ts = ktime_to_timespec64(ktime_get_clocktai());
@@ -119,7 +125,9 @@ https://github.com/torvalds/linux/blob/v5.5/include/linux/timekeeping.h#L202-L20
 
 
 https://github.com/torvalds/linux/blob/v5.5/include/linux/timekeeping.h#L103-L109
-::
+
+.. code-block:: c
+
    /**
     * ktime_get_clocktai - Returns the TAI time of day in ktime_t format
     */
@@ -133,7 +141,9 @@ monotonic clock and calculates offsets from that clock to determine the value
 of other clocks (``CLOCK_TAI``, ``CLOCK_REALTIME``, ``CLOCK_BOOTIME``, etc.)
 
 https://github.com/torvalds/linux/blob/v5.5/kernel/time/timekeeping.c#L790-L808
-::
+
+.. code-block:: c
+
    ktime_t ktime_get_with_offset(enum tk_offsets offs)
    {
            struct timekeeper *tk = &tk_core.timekeeper;
@@ -158,7 +168,9 @@ We can see that the ``CLOCK_REALTIME``, ``CLOCK_BOOTTIME``, and ``CLOCK_TAI``
 are offsets.
 
 https://github.com/torvalds/linux/blob/v5.5/kernel/time/timekeeping.c#L784-L788
-::
+
+.. code-block:: c
+
    static ktime_t *offsets[TK_OFFS_MAX] = {
            [TK_OFFS_REAL] = &tk_core.timekeeper.offs_real,
            [TK_OFFS_BOOT] = &tk_core.timekeeper.offs_boot,
@@ -174,7 +186,8 @@ this example we're taking the offset between the coarse monotonic clock
 
 https://github.com/torvalds/linux/blob/v5.5/kernel/time/vsyscall.c#L69-L72
 
-::
+.. code-block:: c
+
    static inline void update_vdso_data(struct vdso_data *vdata,
                                        struct timekeeper *tk)
    {
