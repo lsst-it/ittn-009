@@ -244,6 +244,51 @@ https://github.com/torvalds/linux/blob/v5.5/kernel/time/vsyscall.c#L69-L72
            // [...]
    }
 
+
+Example Chrony NTP Configuration
+================================
+
+.. code-block:: unixconfig
+
+   # This file is being maintained by Puppet. Do not edit.
+
+   # NTP servers
+   server 140.252.1.140 iburst
+   server 140.252.1.141 iburst
+   server 140.252.1.142 iburst
+
+   # Record the rate at which the system clock gains/losses time.
+   driftfile /var/lib/chrony/drift
+
+   # Enable kernel RTC synchronization.
+   rtcsync
+
+   # In first 3 updates step the system clock instead of slew
+   # if the adjustment is larger than 10 seconds.
+   makestep 10 3
+
+   bindcmdaddress 127.0.0.1
+   bindcmdaddress ::1
+
+   # Serve time even if not synchronized to any NTP server.
+   local stratum 10
+
+   keyfile /etc/chrony.keys
+
+   # Disable logging of client accesses.
+   noclientlog
+
+   # Send a message to syslog if a clock adjustment is larger than the specified threshold
+   logchange 0.5
+
+   logdir /var/log/chrony
+
+   # https://chrony.tuxfamily.org/doc/3.4/chrony.conf.html#leapsecmode
+   leapsecmode system
+
+   # https://chrony.tuxfamily.org/doc/3.4/chrony.conf.html#leapsectz
+   leapsectz right/UTC
+
 .. .. rubric:: References
 
 .. Make in-text citations with: :cite:`bibkey`.
