@@ -47,20 +47,63 @@
 .. Add content here.
 .. Do not include the document title (it's automatically added from metadata.yaml).
 
-Leap Seconds and TAI
-====================
+Linux System Clock
+==================
 
-Earth's rotational period is slightly slower than 86400 seconds, which causes
-the time of day to gradually slip earlier. To compensate for this an extra
-second is periodically added to the UTC timezone to fix this offset.
+The Linux kernel handles the system clock in `Unix time
+<https://en.wikipedia.org/wiki/Unix_time>`_. ``Unix time``, which is a
+monotonic count of seconds since the epoch of 1970-01-01 00:00:00 UTC.  The
+system clock is initially set from a hardware real time clock (RTC) when the
+system is booted. The system clock and RTC are both defined to be UTC and there
+is no facility for instructing the kernel that an alternative epoch is in use.
+The system clock is the definitive source of time on the system.  While the
+kernel does support obtaining timestamps in TAI via system calls, TAI time
+is always computed as an offset from the system clock.
 
-However leap seconds cause a lot of highly bizarre behavior. One such quirk is
-that days that have a leap second have a minute that is 61 seconds long.
+While it is possible to set the system clock to be synchronous with ``TAI``
+time without the kernel's knowledge, this may cause a number of issues,
+including:
+
+- UTC leap second corrections mistakenly being applied to the system clock as if it is UTC time
+- The timestamps in log messages being offset from UTC without any indication
+  that said timestamps are not in UTC
+- Interoperability issues with `kerberos
+  <https://en.wikipedia.org/wiki/Kerberos_(protocol)>`_ (krb5) ticket-granting tickets
+  (TGT), which rely on timestamps in UTC. Rubin Observatory uses krb5 for system authz.
+- Interoperability issues with `x509 <https://en.wikipedia.org/wiki/X.509>`_
+  certificates, which use UTC timestamnp to establish a validity period.  Rubin
+  Observatory uses some management tooling such as puppet which, which is
+  dependent upon x509 certs.
+- Applications that sanity check timestamps to ensure that UTC != TAI will
+  fail.
+
+Leap Seconds
+============
+
+Earth's rotational period is not exactly 86400 seconds, which causes the
+time of day to gradually slip earlier. To compensate for this an extra second
+is periodically added (or subtracted) from from UTC to keep the delta between
+UTC and UT1 under 1 second.
+
+However, leap seconds may cause the clock to behave in ways that many
+applications don't expect. One such quirk is that days that have a leap second
+have a minute that either 59 or 61 seconds long.  One possible issue is the
+expectation that timestamps "seconds" are in the range 00-59. E.g.:
 
 .. code-block:: bash
 
    $ TZ=right/UTC date -d 'Dec 31 2008 23:59:60'
    Wed Dec 31 23:59:60 UTC 2008
+
+As leap seconds are a relatively infrequent event, and likely due to low
+developer awareness, leap second handling problems in applications are often
+unknown/undetected. In order to avoid triggering latent software bugs, it has
+become reasonably common to smear/spread/slew the leap second across a larger
+time period. Typically, this is a day and over the course of that day each
+"clock second" is slight more or less than an SI second.  This avoids ever
+having a timestamp of ``23:59:60`` or skipping over second ``23:59:59`` and
+avoids sudden clock shifts.  However, this strategy inherently relies on
+intentionally making the system clock subtly inaccurate.
 
 CLOCK_TAI: The short story
 ==========================
