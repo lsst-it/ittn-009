@@ -49,6 +49,60 @@
 
 *“We must use time as a tool, not as a couch.”* – John F. Kennedy
 
+Requirements Flow-down
+======================
+
+LSE-030 2.6.1 System Time Reference
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``OSS-REQ-0086``
+
+*Specficiation: The LSST system shall provide an observatory wide standard time reference
+that shall be used by all subsystems where absolute and external time reference is required*
+
+LSE-030 2.6.1.1 Time Accuracy and Precision
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``OSS-REQ-0087``
+
+*Specficiation: Computer clocks used to produce timestamps shall be synchronized with an
+observatory master clock to a precision of timestampPrecision and an accuracy of
+timestampAccuracy, as given in the table below. This requirement shall apply separately to
+each computer clock.*
+
+.. list-table::
+   :header-rows: 1
+
+   * - Description
+     - Value
+     - Unit
+     - Name
+   * - Computer clock timestamp accuracy
+     - 0.010
+     - second
+     - timestampAccuracy
+   * - Computer clock timestamp precision
+     - 0.001
+     - second
+     - timestampPrecision
+
+LSE-030 2.6.1.2 Time Reporting Standard
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``OSS-REQ-0089``
+
+*Specification: The time reporting standard shall be International Atomic Time (TAI).*
+
+LSE-61 1.2.3 Raw Science Image Metadata
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``DMS-REQ-0068 (Priority: 1a)``
+
+*Specification: For each raw science image, the DMS shall store image metadata including at
+least:
+- Time of exposure start and end, referenced to TAI, and DUT1
+...*
+
 Linux System Clock
 ==================
 
