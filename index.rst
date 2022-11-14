@@ -47,6 +47,8 @@
 .. Add content here.
 .. Do not include the document title (it's automatically added from metadata.yaml).
 
+*“We must use time as a tool, not as a couch.”* – John F. Kennedy
+
 Linux System Clock
 ==================
 
