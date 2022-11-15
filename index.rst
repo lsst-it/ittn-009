@@ -236,6 +236,22 @@ reference date--no leap seconds), but UTC uses leap seconds.**
   to TAI because PTP was used as the syncronnization mechanism? This may not
   make sense with the system clock set to UTC.**
 
+
+LTS-440 2.2 Hardware Communication and Telemetry
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** **Missing?**
+
+*Specification: Wherever possible, hardware selection shall be compatible with a
+National Instruments Compact Rios Device. The software used to control hardware
+devices shall be compatible with 64-bit Linux CentOS 7. The LSST-CBP system
+shall be equipped with a PTP capable network card to provide time services
+(Intel i210 is the current default recommendation).*
+
+.. note::
+
+  **Requirement ID/tags appears to be missing from this document.**
+
 Specification
 =============
 
