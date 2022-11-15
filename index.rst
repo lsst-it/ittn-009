@@ -85,6 +85,59 @@ to each computer clock.*
      - second
      - timestampPrecision
 
+LSE-60 6.1 Telescope Time Reference
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``TLS-REQ-0138``
+
+*Specification: The Telescope and Site system shall provide a standard time
+reference to be used by all for absolute and external time reference.*
+
+Derived from requirements:
+
+- ``OSS-REQ-0086``: System Time Reference
+
+LSE-60 6.1.1 Time Absolute Accuracy and Relative Precision
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``TLS-REQ-0139``
+
+*Specification: All time tagged events reported both internally and externally
+by the Telescope and Site shall be done with the timing Absolute_Accuracy and
+Relative_Precision given in the table below.*
+
+.. list-table::
+   :header-rows: 1
+
+   * - Description
+     - Value
+     - Unit
+     - Name
+   * - All time tagged events reported both internally and externally shall be done with an accuracy of Absolute_Accuracy.
+     - 0.010
+     - second
+     - Absolute_Accuracy
+   * - All internal events shall be recorded with a precision relative to the master clock of Relative_Precision.
+     - 0.001
+     - second
+     - Relative_Precision
+
+Derived from requirements:
+
+- ``OSS-REQ-0087``: Time Accuracy and Precision
+
+LSE-60 6.1.2 Telescope Internal Time Standard
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``TLS-REQ-0140``
+
+*Specification: The Telescope and Site internal time reporting standard shall be
+International Atomic Time (TAI).*
+
+Derived from requirements:
+
+- ``OSS-REQ-0089``: Time Reporting Standard
+
 LSE-61 1.2.3 Raw Science Image Metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
