@@ -69,6 +69,37 @@ least:
 - Time of exposure start and end, referenced to TAI, and DUT1
 ...*
 
+LSE-70 3.1.3 PTP Clock Synchronization Protocol
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``SYS-ALL-COM-ICD-0040``
+
+*Specification: The Rubin Observatory components shall follow the PTP version 2 protocol
+when requiring time accuracy better than 1 millisecond.*
+
+LSE-70 3.1.4 NTP Clock Synchronization Protocol
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``SYS-ALL-COM-ICD-0059``
+
+*Specification: The Rubin Observatory components shall follow the NTP version 4 protocol
+when requiring time accuracy no better than 1 millisecond.*
+
+LSE-70 3.2.4 TAI alignment
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``SYS-ALL-COM-ICD-0055``
+
+*Specification: The SAL middleware shall align the internal time to the TAI system clock.*
+
+LSE-70 3.2.5 UTC leap second
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``SYS-ALL-COM-ICD-0056``
+
+*Specification: The SAL middleware shall provide to the CSC the UTC leap second offset
+between TAI and UTC upon request of the CSC.*
+
 Specification
 =============
 
