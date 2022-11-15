@@ -308,6 +308,13 @@ shall be equipped with a PTP capable network card to provide time services
 Specification
 =============
 
+System Clock
+^^^^^^^^^^^^
+
+The system clock of all Linux hosts SHALL be synchronized to UTC. Similarly,
+the real-time clock (RTC) of all Linux hosts SHALL be synchronized to the
+system clock in UTC.
+
 System timestamps in UTC and TAI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
