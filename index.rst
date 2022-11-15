@@ -154,6 +154,17 @@ are using the same time.*
 
   **Does the MCS require sub-millisecond timing accuracy?**
 
+LTS-158 5.1 DCS telemetry time-stamp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``LTS-158-REQ-0004``
+
+*Specification: The DCS shall timestamp all published telemetry.*
+
+.. note::
+
+  **Perhaps this requirement should reference ``OSS-REQ-0086`` and ``OSS-REQ-0087``?**
+
 Specification
 =============
 
