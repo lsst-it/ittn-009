@@ -421,6 +421,15 @@ Relevent requirements
 
 - ``OSS-REQ-0086``
 
+Monitoring
+^^^^^^^^^^
+
+The system clock SHALL be checked at an interval of not more than 5 minutes for
+deviations relevant to an NTP clock.  The sanity check shall be the same
+regardless if the system is using NTP or PTP as its time synchronization
+protocol.  An alert shall be generated for host's with a system clock that has
+a deviation greater than +/- 5ms.
+
 Reference Information
 =====================
 
