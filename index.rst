@@ -49,6 +49,17 @@
 
 *“We must use time as a tool, not as a couch.”* – John F. Kennedy
 
+Terminology
+===========
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
+document are to be interpreted as described in `BCP 14
+<https://www.rfc-editor.org/info/bcp14>`_ [`RFC2119
+<https://datatracker.ietf.org/doc/html/rfc2119>`_] [`RFC8174
+<https://datatracker.ietf.org/doc/html/rfc8174>`_] when, and only when, they
+appear in all capitals, as shown here.
+
 Requirements Flow-down
 ======================
 
