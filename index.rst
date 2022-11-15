@@ -126,6 +126,20 @@ LSE-70 3.2.5 UTC leap second
 *Specification: The SAL middleware shall provide to the CSC the UTC leap second offset
 between TAI and UTC upon request of the CSC.*
 
+LTS-97 3.18.15 DCS TIME
+^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** NONE
+
+*Specification: The DCS shall utilize the time provided by the LSST summit
+network using Precision Time Protocol (PTP) IEEE 1588-2008 or later. The
+systems do not need to be directly synchronized with each other; instead they
+are using the same master clock.*
+
+.. note::
+
+  **Does the DCS require sub-millisecond timing accuracy?**
+
 Specification
 =============
 
