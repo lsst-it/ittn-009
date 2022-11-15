@@ -177,7 +177,8 @@ sub-microsecond absolute time accuracy. However, PTP is less resilient than NTP
 for general purpose hosts as there may only be one master clock at a time on a
 network.  PTP also has increased administrative over head NTP due to requiring
 support both by network switches and special hardware requirements for the
-network interface card (NIC) used for PTP synchronization.
+network interface card (NIC) used for PTP synchronization. PTP data does
+include the TAI-UTC offset.
 
 - A primary grandmaster PTP clocks with GPS receivers SHALL be present at the
   summit.
@@ -190,6 +191,13 @@ network interface card (NIC) used for PTP synchronization.
 - `ptp4l <https://linuxptp.sourceforge.net/>`_ SHALL be used to synchronize the PHC to PTP
 - ``chrony`` SHALL be used to synchronize the system clock with the PHC.
 - PTP SHALL only be supported on operating systems in the EL family.
+
+.. note::
+
+   **TBD: Does automatic UTC-TAI offset work for ptp4l + chrony? Or Does the
+   offset have to be manually set, and thus cause UTC times to be in error by 1
+   second when a new leap second is injected? phc2sys may be needed instead of
+   chrony.**
 
 Relevent requirements
 """""""""""""""""""""
