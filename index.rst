@@ -430,6 +430,19 @@ regardless if the system is using NTP or PTP as its time synchronization
 protocol.  An alert shall be generated for host's with a system clock that has
 a deviation greater than +/- 5ms.
 
+Required Time Syncronization During Boot
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+EL hosts have a ``chrony-wait-service`` system unit which, if enabled, will
+prevent the ``time-sync.target`` from completing until the system clock is in
+sync.  EL hosts MAY opt in to enabling this target.  However, it is NOT
+RECOMMENDED for hosts which run critical network services. Examples of those
+services would DNS, IPA, DHCP, and k8s nodes.
+
+.. note::
+
+  **TBD: waiting on PTP/PHC sync and UTC-TAI offset initization.**
+
 Reference Information
 =====================
 
