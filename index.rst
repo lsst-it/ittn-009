@@ -187,6 +187,17 @@ LTS-160 5.1 Hexapods and Rotator Telemetry Time-stamp
 
   **Perhaps this requirement should reference ``OSS-REQ-0086`` and ``OSS-REQ-0087``?**
 
+LTS-162 3.2 M2 Assembly telemetry time-stamp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``LTS-162-REQ-0005``
+
+*Specification: The M2 Assembly shall time-stamp all published telemetry.*
+
+.. note::
+
+  **Perhaps this requirement should reference ``OSS-REQ-0086`` and ``OSS-REQ-0087``?**
+
 Specification
 =============
 
