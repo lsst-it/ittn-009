@@ -124,6 +124,67 @@ Relevent requirements
 - ``OSS-REQ-0089``
 - ``DMS-REQ-0068 (Priority: 1a)``
 
+Network Time Protocol
+^^^^^^^^^^^^^^^^^^^^^^
+
+`Network Time Protocol (NTP)
+<https://en.wikipedia.org/wiki/Network_Time_Protocol>`_ synchronization is
+generally considered capable of accuracy better than 1ms with a stratum 1 time
+source access via a local area network.  This easily exceeds the
+``timestampAccuracy`` requirement. NTP data includes the UTC-TAI offset and
+information about upcoming leap seconds. NTP clients provide excellent
+resiliency, and even slight tolerance of misbehaving timesource(s), due to the
+ability to simultaneously work with multiple authoritative time sources.
+
+- NTP SHALL be considered the default time synchronization method for hosts at
+  the summit.
+- At least 3 stratrum 1 NTP clocks with GPS receivers SHALL be present at the
+  summit.
+- Enterprise Linux (EL) hosts using NTP SHALL be configured as a client of at
+  least 3 stratum 1 NTP clocks.
+- `Chrony <https://chrony.tuxfamily.org/>`_ SHALL be the NTP client software
+  used on condition the system clock on EL hosts.
+- NTP client software other than ``chrony`` MAY be used on embedded devices or
+  Linux distributions outside of the EL family. ``chrony`` is the RECOMMENDED
+  solution for NTP sync on all platforms which it is readily amiable.
+- ``chrony`` SHALL be configured with ``leapsectz right/UTC`` to enable setting
+  the kernel's UTC-TAI offset.
+- ``chrony`` SHALL be configured with ``leapsecmode system`` to enable the
+  kernel to handle leap second transitions.
+
+Relevent requirements
+"""""""""""""""""""""
+
+- ``OSS-REQ-0086``
+
+Precision Time Protocol
+^^^^^^^^^^^^^^^^^^^^^^^
+
+`Precision Time Protoocol (PTP)
+<https://en.wikipedia.org/wiki/Precision_Time_Protocol>`_ is capable of
+sub-microsecond absolute time accuracy. However, PTP is less resilient than NTP
+for general purpose hosts as there may only be one master clock at a time on a
+network.  PTP also has increased administrative over head NTP due to requiring
+support both by network switches and special hardware requirements for the
+network interface card (NIC) used for PTP synchronization.
+
+- A primary grandmaster PTP clocks with GPS receivers SHALL be present at the
+  summit.
+- A backup grandmaster PTP clock with GPS receivers SHALL be present at the
+  summit.
+- Subsystems MAY elect to "opt-in" a host in to using PTP instead of NTP.
+- Only PTP version 2 SHALL be supported.
+- PTP SHALL only be supported when the device is connected directly to a network switch which capable of, and has been, configured as a PTP boundary clock.
+- PTP SHALL only be supported on hosts with a NIC with a PHC
+- `ptp4l <https://linuxptp.sourceforge.net/>`_ SHALL be used to synchronize the PHC to PTP
+- ``chrony`` SHALL be used to synchronize the system clock with the PHC.
+- PTP SHALL only be supported on operating systems in the EL family.
+
+Relevent requirements
+"""""""""""""""""""""
+
+- ``OSS-REQ-0086``
+
 Linux System Clock
 ==================
 
