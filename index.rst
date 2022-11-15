@@ -140,6 +140,20 @@ are using the same master clock.*
 
   **Does the DCS require sub-millisecond timing accuracy?**
 
+LTS-103 3.10.11 Time
+^^^^^^^^^^^^^^^^^^^^
+
+**ID:** NONE
+
+*Specification: The MCS shall utilize the time provided by the LSST summit
+network using Precision Time Protocol (PTP) IEEE 1588-2008 or later. The
+systems do not need to be directly synchronized with each other; instead they
+are using the same time.*
+
+.. note::
+
+  **Does the MCS require sub-millisecond timing accuracy?**
+
 Specification
 =============
 
