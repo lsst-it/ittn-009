@@ -318,10 +318,13 @@ system clock in UTC.
 System timestamps in UTC and TAI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+All Linux hosts, regardless of the time synchronization protocol used, SHALL
+set the kernel's internal UTC-TAI offset.
+
 Linux hosts SHALL be configured such that the `clock_gettime(2)
 <https://man7.org/linux/man-pages/man3/clock_gettime.3.html>`_ system call will
 provide a timestamp that conforms to ``timestampAccuracy`` and
-``timestampPrecision`` when called with the following values for ``clock_id``:
+``timestampPrecision`` when called with the following values for ``clock_id``.:
 
 - ``CLOCK_REALTIME``
 - ``CLOCK_TAI``
