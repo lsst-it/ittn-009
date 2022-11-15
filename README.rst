@@ -1,7 +1,7 @@
 .. image:: https://img.shields.io/badge/ittn--009-lsst.io-brightgreen.svg
    :target: https://ittn-009.lsst.io
-.. image:: https://travis-ci.com/LSST-IT/ittn-009.svg
-   :target: https://travis-ci.com/LSST-IT/ittn-009
+.. image:: https://github.com/lsst-it/ittn-010/actions/workflows/ci.yaml/badget.svg
+   :target: https://github.com/lsst-it/ittn-010/actions
 ..
   Uncomment this section and modify the DOI strings to include a Zenodo DOI badge in the README
   .. image:: https://zenodo.org/badge/doi/10.5281/zenodo.#####.svg
@@ -20,8 +20,8 @@ This document describes the requirements, configuration, and troubleshooting for
 
 - Publication URL: https://ittn-009.lsst.io
 - Alternative editions: https://ittn-009.lsst.io/v
-- GitHub repository: https://github.com/LSST-IT/ittn-009
-- Build system: https://travis-ci.com/LSST-IT/ittn-009
+- GitHub repository: https://github.com/lsst-it/ittn-009
+- Build system: https://github.com/lsst-it/ittn-010/actions
 
 
 Build this technical note
