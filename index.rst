@@ -59,6 +59,32 @@ LSE-030 2.6.1.2 Time Reporting Standard
 
 *Specification: The time reporting standard shall be International Atomic Time (TAI).*
 
+LSE-59 7.4.1 Timestamp Accuracy and Precision
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``CAM-REQ-0111``
+
+*Specification: Computer clocks used to produce timestamps shall be synchronized with an
+observatory master clock to a precision of [timestampPrecision] and an accuracy of
+[timestampAccuracy], as given in the table below. This requirement shall apply separately
+to each computer clock.*
+
+.. list-table::
+   :header-rows: 1
+
+   * - Description
+     - Value
+     - Unit
+     - Name
+   * - Computer clock timestamp accuracy
+     - 0.010
+     - second
+     - timestampAccuracy
+   * - Computer clock timestamp precision
+     - 0.001
+     - second
+     - timestampPrecision
+
 LSE-61 1.2.3 Raw Science Image Metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
