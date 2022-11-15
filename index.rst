@@ -198,6 +198,20 @@ LTS-162 3.2 M2 Assembly telemetry time-stamp
 
   **Perhaps this requirement should reference ``OSS-REQ-0086`` and ``OSS-REQ-0087``?**
 
+LTS-206 3.7.1.6 Time
+^^^^^^^^^^^^^^^^^^^^
+
+**ID:** LTS-206-REQ-0209
+
+*Specification: The Control System shall utilize the time provided by the LSST
+summit network.*
+
+Derived from requirements:
+
+- ``TLS-REQ-0138``: Telescope Time Reference
+- ``TLS-REQ-0139``: Time Absolute Accuracy and Relative Precision
+- ``TLS-REQ-0140``: Telescope Internal Time Standar
+
 Specification
 =============
 
