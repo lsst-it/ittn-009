@@ -346,14 +346,18 @@ source access via a local area network.  This easily exceeds the
 ``timestampAccuracy`` requirement. NTP data includes the UTC-TAI offset and
 information about upcoming leap seconds. NTP clients provide excellent
 resiliency, and even slight tolerance of misbehaving timesource(s), due to the
-ability to simultaneously work with multiple authoritative time sources.
+ability to simultaneously work with multiple authoritative time sources. No
+traceable requirement establishes a need for time synchronization accuracy
+greater than +/- 10 milliseconds, which is easily achived with NTP.
 
 - NTP SHALL be considered the default time synchronization method for hosts at
   the summit.
 - At least 3 stratrum 1 NTP clocks with GPS receivers SHALL be present at the
   summit.
 - Enterprise Linux (EL) hosts using NTP SHALL be configured as a client of at
-  least 3 stratum 1 NTP clocks.
+  least *local* 3 stratum 1 NTP clocks.
+- Enterprise Linux (EL) hosts using NTP MAY have additional *remote* stratrum 1
+  time sources configured.
 - `Chrony <https://chrony.tuxfamily.org/>`_ SHALL be the NTP client software
   used on condition the system clock on EL hosts.
 - NTP client software other than ``chrony`` MAY be used on embedded devices or
