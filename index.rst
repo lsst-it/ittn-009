@@ -212,6 +212,30 @@ Derived from requirements:
 - ``TLS-REQ-0139``: Time Absolute Accuracy and Relative Precision
 - ``TLS-REQ-0140``: Telescope Internal Time Standar
 
+LTS-306 2.5.3.3 Follow Clock Synchronization Protocol
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``SYS-ALL-COM-ICD-0012``
+
+**Specification: System components requiring accurate time shall follow the IEEE
+1588-2008 Standard for a Precision Clock Synchronization Protocol for Networked
+Measurement and Control Systems, also known as PTP Version 2.**
+
+LTS-306 2.5.3.6 Interpret internal time in displayed timestamp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``SYS-ALL-COM-ICD-0015``
+
+**Specification: The system shall convert PTP time to UTC upon request.
+Discussion: PTP time (internal representation) uses TAI (elapsed time from
+reference date--no leap seconds), but UTC uses leap seconds.**
+
+.. note::
+
+  **This requirement may have been assuming that the system clock would be set
+  to TAI because PTP was used as the syncronnization mechanism? This may not
+  make sense with the system clock set to UTC.**
+
 Specification
 =============
 
