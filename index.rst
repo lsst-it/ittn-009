@@ -351,7 +351,7 @@ traceable requirement establishes a need for time synchronization accuracy
 greater than +/- 10 milliseconds, which is easily achived with NTP.
 
 - NTP SHALL be considered the default time synchronization method for hosts at
-  the summit.
+  the summit, unless a subsystem has explicitly opted to use PTP.
 - At least 3 stratrum 1 NTP clocks with GPS receivers SHALL be present at the
   summit.
 - Enterprise Linux (EL) hosts using NTP SHALL be configured as a client of at
@@ -380,10 +380,22 @@ Precision Time Protocol
 <https://en.wikipedia.org/wiki/Precision_Time_Protocol>`_ is capable of
 sub-microsecond absolute time accuracy. However, PTP is less resilient than NTP
 for general purpose hosts as there may only be one master clock at a time on a
-network.  PTP also has increased administrative over head NTP due to requiring
+network. PTP also has increased administrative over head NTP due to requiring
 support both by network switches and special hardware requirements for the
-network interface card (NIC) used for PTP synchronization. PTP data does
-include the TAI-UTC offset.
+network interface card (NIC) used for PTP synchronization. PTP has more "moving
+parts" and thus more failure modes than NTP.  PTP data does include the TAI-UTC
+offset. The use of PTP is NOT RECOMMENDED when NTP's capabilities are
+sufficient (which appear to be true based on the identified traceable
+requirements). This is due to the installation base of hosts using NTP likely
+being *at least* 3 orders of magnitude greater than that of PTP. For linux
+systems, there were two primary PTP implementations: `ptpd
+<https://github.com/ptpd/ptpd>`_ and `linuxptp
+<https://linuxptp.sourceforge.net/>`_.  It appears that ``ptpd`` has been
+unsupported since 2019.  ``linuxptp`` has recent code commits from Sept. 2022
+and is likely only viable solution for PTP support on Linux.  However, real
+world experience has encountered problems with ``linuxptp``.  It is assumed
+that hosts using ``linuxptp`` are more likley to experience system clock
+synchronization problems.
 
 - A primary grandmaster PTP clocks with GPS receivers SHALL be present at the
   summit.
