@@ -196,8 +196,11 @@ Relevent requirements
 
 - ``OSS-REQ-0086``
 
+Reference Information
+=====================
+
 Linux System Clock
-==================
+^^^^^^^^^^^^^^^^^^
 
 The Linux kernel handles the system clock in `Unix time
 <https://en.wikipedia.org/wiki/Unix_time>`_. ``Unix time``, which is a
@@ -227,7 +230,7 @@ including:
   fail.
 
 Leap Seconds
-============
+^^^^^^^^^^^^
 
 Earth's rotational period is not exactly 86400 seconds, which causes the
 time of day to gradually slip earlier. To compensate for this an extra second
@@ -255,7 +258,7 @@ avoids sudden clock shifts.  However, this strategy inherently relies on
 intentionally making the system clock subtly inaccurate.
 
 CLOCK_TAI: The short story
-==========================
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Linux calculates all kernel clocks by reading ``CLOCK_MONOTONIC`` and adding offsets. There is only one actual clock; all others are synthetic.
 #. By default Linux sets ``CLOCK_TAI`` to match ``CLOCK_REALTIME`` on boot.
@@ -264,13 +267,13 @@ CLOCK_TAI: The short story
 #. It is extremely difficult to timestamp events with precision in the domain of 50ns-5us because Linux does not provide realtime guarantees.
 
 CLOCK_TAI: The long story
-=========================
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 On Linux, ``CLOCK_TAI`` is not an independent timer; rather it (along with all
 other clocks) are defined by offsets from the Linux monotonic clock.
 
 CLOCK_TAI kernel clock implementation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""""""
 
 We first start by looking at the definition of the ``CLOCK_TAI`` clock.
 
@@ -370,7 +373,7 @@ https://github.com/torvalds/linux/blob/v5.5/kernel/time/timekeeping.c#L784-L788
    };
 
 Timestamping with vDSO
-^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""
 
 We can also look at how vDSO provides user space access to the current time. In
 this example we're taking the offset between the coarse monotonic clock
@@ -393,9 +396,8 @@ https://github.com/torvalds/linux/blob/v5.5/kernel/time/vsyscall.c#L69-L72
            // [...]
    }
 
-
 Example Chrony NTP Configuration
-================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: unixconfig
 
