@@ -165,6 +165,17 @@ LTS-158 5.1 DCS telemetry time-stamp
 
   **Perhaps this requirement should reference ``OSS-REQ-0086`` and ``OSS-REQ-0087``?**
 
+LTS-159 5.1 Mount Telemetry Time-stamp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**ID:** ``LTS-159-REQ-0004``
+
+*Specification: The Mount shall time-stamp all published telemetry topics.*
+
+.. note::
+
+  **Perhaps this requirement should reference ``OSS-REQ-0086`` and ``OSS-REQ-0087``?**
+
 Specification
 =============
 
