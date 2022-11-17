@@ -664,12 +664,13 @@ Example Chrony NTP Configuration
    # In first 3 updates step the system clock instead of slew
    # if the adjustment is larger than 10 seconds.
    makestep 10 3
+   cmdport 0
 
    bindcmdaddress 127.0.0.1
    bindcmdaddress ::1
 
-   # Serve time even if not synchronized to any NTP server.
-   local stratum 10
+   # http://chrony.tuxfamily.org/manual.html#port-directive
+   port 0
 
    keyfile /etc/chrony.keys
 
@@ -677,7 +678,7 @@ Example Chrony NTP Configuration
    noclientlog
 
    # Send a message to syslog if a clock adjustment is larger than the specified threshold
-   logchange 0.5
+   logchange 0.005
 
    logdir /var/log/chrony
 
